@@ -1,10 +1,10 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 # 瑞莎 8M 219 摄像头
 
-![Radxa Camera 8M 219](/img/accessories/camera-8m-219-01.webp)
+![Radxa Camera 8M 219](/img/accessories/av/camera-8m-219-01.webp)
 
 ## 概述
 
@@ -46,15 +46,15 @@ sidebar_position: 4
 
 - 支持 ZERO 3W / 3E
 
-![Radxa Camera 8M 219](/img/accessories/camera-8m-219-02.webp)
+![Radxa Camera 8M 219](/img/accessories/av/camera-8m-219-02.webp)
 
 - 支持 ROCK 5 系列
 
-![Radxa Camera 8M 219](/img/accessories/camera-8m-219-03.webp)
+![Radxa Camera 8M 219](/img/accessories/av/camera-8m-219-03.webp)
 
 - 支持 ROCK 3 / 4 系列
 
-![Radxa Camera 8M 219](/img/accessories/camera-8m-219-04.webp)
+![Radxa Camera 8M 219](/img/accessories/av/camera-8m-219-04.webp)
 
 ## 数据手册
 
@@ -63,4 +63,4 @@ sidebar_position: 4
 
 ## 物理规格
 
-![Radxa Camera 8M 219](/img/accessories/camera-8m-219-05.webp)
+![Radxa Camera 8M 219](/img/accessories/av/camera-8m-219-05.webp)

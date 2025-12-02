@@ -47,8 +47,8 @@ The Radxa-CM5-IO comes with one 4-lane CSI interface and one 2-lane CSI interfac
   </tr>
 </table>
 
-For 4lane camera usage, please see [Camera usage tutorial](../accessories/camera_4k)  
-For the 2lane camera, see [Camera Tutorial](../accessories/camera_8m)
+For 4lane camera usage, please see [Camera usage tutorial](../accessories/av/camera_4k)
+For the 2lane camera, see [Camera Tutorial](../accessories/av/camera_8m)
 
 ## Display
 

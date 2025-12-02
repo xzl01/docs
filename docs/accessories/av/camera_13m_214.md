@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 ---
 
 # 瑞莎 13M 214 摄像头
@@ -52,7 +52,7 @@ FPC 排线：标准 31p 0.3mm 间距排线，长度 150mm
 ## 机械尺寸
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/camera_13m_214_dimension.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/av/camera_13m_214_dimension.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ## 使用指南
@@ -72,7 +72,7 @@ FPC 排线：标准 31p 0.3mm 间距排线，长度 150mm
 ② : 连接摄像头的 MIPI CSI 接口，金手指（金属接触点）朝向摄像头方向
 
 <div style={{textAlign: 'center'}}>
-    <img src="/img/accessories/rock4d-camera-13m-214.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/img/accessories/av/rock4d-camera-13m-214.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### 软件使能

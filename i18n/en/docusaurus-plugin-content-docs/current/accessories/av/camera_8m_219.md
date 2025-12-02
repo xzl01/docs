@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 # Radxa Camera 8M 219
@@ -46,15 +46,15 @@ Radxa Camera 8M 219 is an high resolution camera module for Radxa products power
 
 - Support for ZERO 3W / 3E
 
-![Radxa Camera 8M 219](/img/accessories/camera-8m-219-02.webp)
+![Radxa Camera 8M 219](/img/accessories/av/camera-8m-219-02.webp)
 
 - Support for ROCK 5 Family
 
-![Radxa Camera 8M 219](/img/accessories/camera-8m-219-03.webp)
+![Radxa Camera 8M 219](/img/accessories/av/camera-8m-219-03.webp)
 
 - Support for ROCK 3 / 4 Family
 
-![Radxa Camera 8M 219](/img/accessories/camera-8m-219-04.webp)
+![Radxa Camera 8M 219](/img/accessories/av/camera-8m-219-04.webp)
 
 ## Datasheet
 
@@ -63,4 +63,4 @@ Radxa Camera 8M 219 is an high resolution camera module for Radxa products power
 
 ## Physical specifications
 
-![Radxa Camera 8M 219](/img/accessories/camera-8m-219-05.webp)
+![Radxa Camera 8M 219](/img/accessories/av/camera-8m-219-05.webp)

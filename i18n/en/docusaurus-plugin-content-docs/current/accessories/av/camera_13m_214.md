@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 ---
 
 # Radxa 13M 214 Camera
@@ -49,7 +49,7 @@ FPC Cable: Standard 31p 0.3mm pitch cable, 150mm length
 ## Mechanical Dimensions
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/camera_13m_214_dimension.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/av/camera_13m_214_dimension.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ## User Guide
@@ -69,7 +69,7 @@ Connect the camera to the board using an FPC cable. Using ROCK 4D as an example:
 ② : Connect to the camera's MIPI CSI interface with the golden fingers (metal contacts) facing the camera
 
 <div style={{textAlign: 'center'}}>
-    <img src="/en/img/accessories/rock4d-camera-13m-214.webp" style={{width: '100%', maxWidth: '1200px'}} />
+    <img src="/en/img/accessories/av/rock4d-camera-13m-214.webp" style={{width: '100%', maxWidth: '1200px'}} />
 </div>
 
 ### Software Enablement

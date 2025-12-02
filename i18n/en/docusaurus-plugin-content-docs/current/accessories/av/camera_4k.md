@@ -1,17 +1,17 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 ---
 
 # Radxa Camera 4K
 
-![Radxa Camera 4K](/img/accessories/camera-4k.webp)
+![Radxa Camera 4K](/img/accessories/av/camera-4k.webp)
 
 ## Overview
 
 Radxa Camera 4K is an high resolution camera module for Radxa products powered by a Sony IMX415 image sensor with 8.29M pixels and up to 4K resolution. Radxa Camera 4K Module is capable of the following applications:
 
-・ Surveillance cameras  
-・ FA cameras  
+・ Surveillance cameras
+・ FA cameras
 ・ Industrial cameras
 
 ## Specification
@@ -45,5 +45,5 @@ Radxa Camera 4K is an high resolution camera module for Radxa products powered b
 
 ## Physical specifications
 
-![Radxa Camera 4K](/img/accessories/camera-4k-spec-1.webp)
-![Radxa Camera 4K](/img/accessories/camera-4k-spec-2.webp)
+![Radxa Camera 4K](/img/accessories/av/camera-4k-spec-1.webp)
+![Radxa Camera 4K](/img/accessories/av/camera-4k-spec-2.webp)

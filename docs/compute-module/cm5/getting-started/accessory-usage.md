@@ -47,8 +47,8 @@ Radxa-CM5-IO 带有一个 4-lane 的 CSI 接口和一个 2-lane 的 CSI 接口�
   </tr>
 </table>
 
-4lane 摄像头使用请参见[摄像头使用教程](../accessories/camera_4k)  
-2lane 摄像头使用请参见[摄像头使用教程](../accessories/camera_8m)
+4lane 摄像头使用请参见[摄像头使用教程](../accessories/av/camera_4k)
+2lane 摄像头使用请参见[摄像头使用教程](../accessories/av/camera_8m)
 
 ## 屏幕
 

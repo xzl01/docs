@@ -1,10 +1,10 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 ---
 
 # 瑞莎 4K 摄像头
 
-![Radxa Camera 4K](/img/accessories/camera-4k.webp)
+![Radxa Camera 4K](/img/accessories/av/camera-4k.webp)
 
 ## 概述
 
@@ -45,5 +45,5 @@ Radxa Camera 4K 是一款适用于 Radxa 产品的高分辨率相机模块，采
 
 ## 物理规格
 
-![Radxa Camera 4K](/img/accessories/camera-4k-spec-1.webp)
-![Radxa Camera 4K](/img/accessories/camera-4k-spec-2.webp)
+![Radxa Camera 4K](/img/accessories/av/camera-4k-spec-1.webp)
+![Radxa Camera 4K](/img/accessories/av/camera-4k-spec-2.webp)
