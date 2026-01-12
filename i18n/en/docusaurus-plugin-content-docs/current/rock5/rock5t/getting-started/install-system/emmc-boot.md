@@ -9,7 +9,7 @@ If your Radxa ROCK 5T has onboard eMMC, you can use the `dd` command to write th
 :::tip Important Notes
 Installing the system will format the eMMC. Please back up any important data in advance!
 
-If your system cannot currently boot from a MicroSD card, you can refer to the [Install OS to MicroSD Card](./boot_from_sd_card.md) tutorial.
+If your system cannot currently boot from a MicroSD card, you can refer to the [Install OS to MicroSD Card](./boot-from-sd-card.md) tutorial.
 :::
 
 ## Prerequisites

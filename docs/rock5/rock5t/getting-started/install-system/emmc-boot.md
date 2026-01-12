@@ -9,7 +9,7 @@ sidebar_position: 3
 :::tip 注意事项
 安装系统会格式化 eMMC，如果有重要数据请提前备份！
 
-若您的系统目前还无法通过 MicroSD 卡启动，可以参考 [安装系统到 MicroSD 卡](./boot_from_sd_card.md) 教程。
+若您的系统目前还无法通过 MicroSD 卡启动，可以参考 [安装系统到 MicroSD 卡](./boot-from-sd-card.md) 教程。
 :::
 
 ## 使用前提
