@@ -1,5 +1,10 @@
 ---
 sidebar_position: 11
+
+doc_kind: wrapper
+source_of_truth: common
+imports_resolve_to:
+  - docs/common/ai/_real-esrgan-x4plus_qai-app-builder-6490.mdx
 ---
 
 # Real ESRGAN Example

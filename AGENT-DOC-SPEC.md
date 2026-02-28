@@ -11,11 +11,6 @@
   - `*.md`
   - `*.mdx`
 
-## Agent Reading Entry
-
-- Agent 统一阅读策略见：`.github/agent-reading-guide.md`
-- 当页面为 `wrapper` 时，必须按阅读指南优先使用 `imports_resolve_to` 跳转正文真源。
-
 ## Document Kind
 
 - `doc_kind: page`
@@ -55,17 +50,6 @@ source_of_truth: local|common|template
 
 ### Wrapper / Partial / Template
 
-- `wrapper` 页面必须声明可解析的真源元数据，便于 Agent 直接跳转正文源。
-- `wrapper` 页面应包含：
-
-```yaml
-doc_kind: wrapper
-source_of_truth: common|template|local
-imports_resolve_to:
-  - docs/common/...
-```
-
-- `imports_resolve_to` 必须指向仓库内真实文件路径（仓库根目录相对路径）。
 - `wrapper` 与 `partial` 可根据现有架构保留轻量写法。
 - 新增模板建议显式声明 `doc_kind: template`。
 
@@ -92,13 +76,6 @@ imports_resolve_to:
   - `json`
 - 禁止使用无语言标注的裸代码块（` ``` `）。
 - 命令示例应可直接执行，避免隐式上下文。
-- MD/MDX 正文中的尖括号变量占位（如 `<loader-file>.bin`）必须使用行内代码包裹（`` `<loader-file>.bin` ``），避免被 MDX 误判为 JSX 标签。
-
-## Import Resolution
-
-- `import ... from ...` 的相对路径必须可解析到仓库内真实文件。
-- `import` 路径建议避免 `\\_` 写法（例如 `\\_foo.mdx`），优先使用真实文件名 `_foo.mdx` 以减少工具解析歧义。
-- wrapper 页面的 `imports_resolve_to` 应与可解析 import 目标保持一致。
 
 ## Placeholder and Draft Content
 

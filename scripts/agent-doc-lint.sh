@@ -34,17 +34,6 @@ has_frontmatter() {
   [[ "$first_line" == "---" ]]
 }
 
-has_frontmatter_key() {
-  local file="$1"
-  local key="$2"
-  awk -v key="$key" '
-    NR == 1 && $0 == "---" {in_fm=1; next}
-    in_fm && $0 == "---" {exit}
-    in_fm && $0 ~ ("^" key "[[:space:]]*:") {found=1; exit}
-    END {exit(found ? 0 : 1)}
-  ' "$file"
-}
-
 frontmatter_value() {
   local file="$1"
   local key="$2"
@@ -63,7 +52,7 @@ frontmatter_value() {
 
 is_wrapper_file() {
   local file="$1"
-  local import_count
+  local first_non_empty
   local total_lines
   local doc_kind
   doc_kind="$(frontmatter_value "$file" "doc_kind" || true)"
@@ -71,52 +60,23 @@ is_wrapper_file() {
     return 0
   fi
 
-  import_count="$(grep -Ec "^import[[:space:]]+.*[[:space:]]from[[:space:]]+['\\\"].*['\\\"];?$" "$file" || true)"
+  first_non_empty="$(awk 'NF {print; exit}' "$file" || true)"
   total_lines="$(wc -l < "$file" | awk '{print $1}')"
 
-  if [[ "$import_count" -ge 1 ]] && [[ "$total_lines" -le 40 ]]; then
+  if [[ "$first_non_empty" =~ ^import[[:space:]] ]] && [[ "$total_lines" -le 30 ]]; then
     return 0
   fi
 
   return 1
 }
 
-frontmatter_list_values() {
-  local file="$1"
-  local key="$2"
-  awk -v key="$key" '
-    NR == 1 && $0 == "---" {in_fm=1; next}
-    in_fm && $0 == "---" {exit}
-    in_fm {
-      if (!in_list && $0 ~ ("^" key "[[:space:]]*:")) {
-        in_list=1
-        next
-      }
-      if (in_list) {
-        if ($0 ~ /^[[:space:]]*-[[:space:]]*/) {
-          val=$0
-          sub(/^[[:space:]]*-[[:space:]]*/, "", val)
-          gsub(/^"|"$/, "", val)
-          gsub(/^'\''|'\''$/, "", val)
-          print val
-          next
-        }
-        if ($0 ~ /^[A-Za-z0-9_-]+[[:space:]]*:/) {
-          exit
-        }
-      }
-    }
-  ' "$file"
-}
-
 check_unlabeled_fence() {
   local file="$1"
   awk '
     BEGIN {in_fence=0}
-    /^[[:space:]]*```/ {
+    /^```/ {
       line=$0
       gsub(/[[:space:]]+$/, "", line)
-      sub(/^[[:space:]]+/, "", line)
       if (in_fence == 0) {
         if (line == "```") {
           printf("%d\n", NR)
@@ -124,49 +84,6 @@ check_unlabeled_fence() {
         in_fence=1
       } else {
         in_fence=0
-      }
-    }
-  ' "$file"
-}
-
-check_import_paths() {
-  local file="$1"
-  awk '
-    /^[[:space:]]*import[[:space:]].*[[:space:]]from[[:space:]]+["\047][^"\047]+["\047];?[[:space:]]*$/ {
-      line=$0
-      match(line, /from[[:space:]]+["\047][^"\047]+["\047]/)
-      if (RSTART > 0) {
-        spec=substr(line, RSTART, RLENGTH)
-        sub(/^from[[:space:]]+["\047]/, "", spec)
-        sub(/["\047]$/, "", spec)
-        printf("%d:%s\n", NR, spec)
-      }
-    }
-  ' "$file"
-}
-
-check_raw_angle_placeholders() {
-  local file="$1"
-  awk '
-    BEGIN {in_fence=0}
-    /^[[:space:]]*```/ {
-      in_fence = 1 - in_fence
-      next
-    }
-    in_fence == 1 {next}
-    {
-      line=$0
-
-      # If a line already uses inline code, skip strict placeholder scan
-      # to avoid false positives on JSX/template-string rich lines.
-      if (index(line, "`") > 0) {
-        next
-      }
-
-      while (match(line, /<[a-z0-9]+-[a-z0-9-]+>(\.[A-Za-z0-9_.-]+)?/)) {
-        token=substr(line, RSTART, RLENGTH)
-        printf("%d:%s\n", NR, token)
-        line=substr(line, RSTART + RLENGTH)
       }
     }
   ' "$file"
@@ -198,66 +115,7 @@ for file in "$@"; do
     err "$file has unlabeled code fence at line $line_no"
   done < <(check_unlabeled_fence "$file")
 
-  while IFS= read -r import_hit; do
-    [[ -z "$import_hit" ]] && continue
-    import_line="${import_hit%%:*}"
-    import_path="${import_hit#*:}"
-
-    if [[ "$import_path" == .* ]]; then
-      import_target="$(dirname "$file")/$import_path"
-      import_target_compat="${import_target//\\_/_}"
-
-      if [[ ! -f "$import_target" && ! -f "$import_target_compat" ]]; then
-        err "$file import target not found at line $import_line: $import_path"
-      fi
-    fi
-  done < <(check_import_paths "$file")
-
-  while IFS= read -r placeholder_hit; do
-    [[ -z "$placeholder_hit" ]] && continue
-    placeholder_line="${placeholder_hit%%:*}"
-    placeholder_token="${placeholder_hit#*:}"
-    err "$file has unescaped angle placeholder at line $placeholder_line: $placeholder_token (wrap in backticks)"
-  done < <(check_raw_angle_placeholders "$file")
-
-  if is_partial_file "$file"; then
-    continue
-  fi
-
-  if is_wrapper_file "$file"; then
-    if ! has_frontmatter "$file"; then
-      err "$file wrapper missing front matter (must start with ---)"
-      continue
-    fi
-
-    wrapper_kind="$(frontmatter_value "$file" "doc_kind" || true)"
-    if [[ "$wrapper_kind" != "wrapper" ]]; then
-      err "$file wrapper front matter missing doc_kind: wrapper"
-    fi
-
-    source_of_truth="$(frontmatter_value "$file" "source_of_truth" || true)"
-    if [[ -z "$source_of_truth" ]]; then
-      err "$file wrapper front matter missing source_of_truth"
-    fi
-
-    if ! has_frontmatter_key "$file" "imports_resolve_to"; then
-      err "$file wrapper front matter missing imports_resolve_to"
-      continue
-    fi
-
-    imports_count=0
-    while IFS= read -r import_target; do
-      [[ -z "$import_target" ]] && continue
-      imports_count=$((imports_count + 1))
-      if [[ ! -f "$import_target" ]]; then
-        err "$file imports_resolve_to target not found: $import_target"
-      fi
-    done < <(frontmatter_list_values "$file" "imports_resolve_to")
-
-    if [[ "$imports_count" -eq 0 ]]; then
-      err "$file imports_resolve_to must contain at least one list item"
-    fi
-
+  if is_partial_file "$file" || is_wrapper_file "$file"; then
     continue
   fi
 

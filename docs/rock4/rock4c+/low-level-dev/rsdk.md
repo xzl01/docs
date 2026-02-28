@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 description: "Customize your system with the rsdk tool"
+
 doc_kind: wrapper
 source_of_truth: common
 imports_resolve_to:
