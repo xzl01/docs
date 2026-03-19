@@ -103,7 +103,7 @@ Android：
     <tr>
         <td align="center"><img src="/img/rock5b/downloads/openwrt.webp" alt="OpenWRT" style={{ width: "70%" }} /></td>
         <td align="center">OpenWRT 是一个适用于嵌入式设备的 Linux 操作系统。它提供了一个完全可写的文件系统，带有包管理功能，使您可以自由选择和定制设备上的应用程序和功能。</td>
-        <td align="center"><a href="https://openwrt.org/toh/hwdata/radxa/radxa_rock_5b" >OpenWRT 技术数据页面：Radxa Rock 5B</a><br /><br /><a href="https://openwrt.org/" >OpenWRT 官方网站</a><br /><br /><a href="https://forum.openwrt.org/" >OpenWRT 论坛</a></td>
+        <td align="center"><a href="https://openwrt.org/toh/hwdata/radxa/radxa_rock_5b" >OpenWRT 技术数据页面：Radxa Rock 5B</a><br /><br /><a href="https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5b-ext4-sysupgrade.img.gz" >ROCK 5B OpenWRT ext4 sysupgrade 镜像</a><br /><br /><a href="https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-5b-squashfs-sysupgrade.img.gz" >ROCK 5B OpenWRT squashfs sysupgrade 镜像</a><br /><br /><a href="https://openwrt.org/" >OpenWRT 官方网站</a><br /><br /><a href="https://forum.openwrt.org/" >OpenWRT 论坛</a></td>
     </tr>
 
 </table>
@@ -200,6 +200,10 @@ L2203 L2205 L2300 L2301 L2303 改成 3225 封装的 RHP322512T-R24M
 <TabItem value="ROCK 5B+">
 
 ### V1.2
+
+:::note
+`v1.2 原理图 pdf` 中的 Block Diagram 仍包含旧版接口标注，不完全代表当前 ROCK 5B+ 的实际 PCIe 布局。ROCK 5B+ 实际为 **2 个 PCIe M Key + 1 个 PCIe B Key**，**没有 PCIe E Key**。当前接口说明请以 [硬件接口](./hardware-design/hardware-interface) 页面为准。
+:::
 
 - [v1.2 原理图 pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_schematic.pdf)
 - [v1.2 位号图 pdf](https://dl.radxa.com/rock5/5b+/docs/hw/radxa_rock5bp_v1.2_components_placement_map.pdf)

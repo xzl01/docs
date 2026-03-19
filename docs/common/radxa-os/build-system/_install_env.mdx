@@ -182,3 +182,31 @@ sudo apt-get install ./code_xxx_amd64.deb
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
+
+## 环境搭建完成标准
+
+完成以上步骤后，可以用下面几项快速确认环境是否已经准备好：
+
+- 运行 `docker --version` 能正常输出 Docker 版本信息。
+- 重新登录或重启后，普通用户执行 `docker ps` 不需要再额外加 `sudo`。
+- Visual Studio Code 已安装 `Dev Containers` 拓展。
+- 后续打开带有 `.devcontainer` 配置的源码目录时，Visual Studio Code 能识别并提示 `Reopen in Container`。
+
+如果以上几项都满足，说明本机已经具备后续构建 {props?.items ?? 'U-Boot、Kernel and Radxa OS'} 的基础环境。
+
+## 首次下载与磁盘空间说明
+
+- 首次使用 Dev Container 时，Visual Studio Code 会自动拉取容器镜像并安装依赖。
+- 这个过程通常会下载数 GB 级别的数据，并额外占用数 GB 磁盘空间。
+- 具体下载时长与镜像大小会随着基础镜像、依赖版本和网络环境变化而变化；在网络正常时，首次初始化通常需要等待一段时间，请预留充足时间和磁盘空间。
+
+## 常见网络问题
+
+如果安装 Docker、下载 VS Code，或者首次启动 Dev Container 时速度过慢、下载失败、连接超时，可以按下面顺序检查：
+
+1. 先确认主机网络连接正常，并能访问 `https://get.docker.com` 和 `https://code.visualstudio.com/`。
+2. 如果当前网络对 Docker Hub 或相关下载源有限制，请按你所在网络环境配置可用的代理或镜像加速。
+3. 如果 Docker 已安装但容器镜像拉取失败，先执行 `docker pull hello-world` 验证 Docker 基础下载链路是否正常。
+4. 若使用公司网络、校园网或受限网络，建议优先切换到更稳定的网络后再重新执行初始化，避免 Dev Container 首次拉取过程中断。
+
+如果仍然失败，建议先记录报错信息，再继续排查 Docker 网络、代理或 DNS 配置问题。

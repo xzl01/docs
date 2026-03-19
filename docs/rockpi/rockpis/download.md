@@ -26,9 +26,15 @@ Armbian 的默认凭据如下：
 | 密码   | `1234` |
 
 - [Radxa ROCK PI S OpenWRT](https://openwrt.org/toh/hwdata/radxa/radxa_rock_pi_s)
+- [Radxa ROCK PI S OpenWRT ext4 sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-pi-s-ext4-sysupgrade.img.gz)
+- [Radxa ROCK PI S OpenWRT squashfs sysupgrade 镜像](https://downloads.openwrt.org/releases/25.12.0/targets/rockchip/armv8/openwrt-25.12.0-rockchip-armv8-radxa_rock-pi-s-squashfs-sysupgrade.img.gz)
 
 - [Radxa ROCK PI S DietPi](https://dietpi.com/downloads/images/DietPi_ROCKPiS-ARMv8-Bookworm.img.xz)
 
 :::caution
 非瑞莎官方维护的镜像，瑞莎不能保证完整功能，如遇到问题，请到对应的社区寻求帮助。
 :::
+
+## 硬件设计
+
+- [ROCK Pi S 硬件设计资料](https://dl.radxa.com/rockpis/docs/hw/)

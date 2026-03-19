@@ -6,6 +6,10 @@ sidebar_position: 5
 
 The Radxa Dragon Q6A features an onboard eMMC/UFS module combination interface, supporting both eMMC and UFS modules.
 
+:::danger
+Do not use untested third-party UFS or eMMC modules. Some third-party modules may short the SBC and cause permanent hardware damage, and such damage is not covered by warranty.
+:::
+
 ## Hardware Connection
 
 Install the eMMC module or UFS module into the eMMC/UFS module combination interface on the Radxa Dragon Q6A.
@@ -29,6 +33,17 @@ For system installation, refer to the following tutorials:
 - [Install System to eMMC](../getting-started/install-system/emmc-system)
 
 - [Install System to UFS](../getting-started/install-system/ufs-system)
+
+## UFS Performance Reference
+
+The following table shows measured read/write performance of different UFS modules on the Dragon Q6A, tested using the `dd` command. Data is for reference only.
+
+| Product Name       | UFS Chip Brand/Model                  | Capacity | Read Speed | Write Speed | Test Environment   |
+| ------------------ | ------------------------------------- | -------- | ---------- | ----------- | ------------------ |
+| Radxa UFS Module   | Samsung KLUDG4UHGC-B0E1 (UFS 3.1)    | 128GB    | 1300 MB/s  | 1200 MB/s   | Radxa OS (Linux)   |
+| Radxa UFS Module   | Kioxia THGJFGT1E45BAILB              | 256GB    | 1811 MB/s  | 557 MB/s    | Radxa OS (Linux)   |
+
+> Note: Actual read/write speeds may vary depending on the UFS module brand, capacity, firmware version, and test environment. The above data are measured reference values.
 
 ## Interface Pin Definition
 

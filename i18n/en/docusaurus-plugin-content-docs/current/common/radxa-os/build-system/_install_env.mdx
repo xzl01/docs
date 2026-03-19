@@ -178,3 +178,31 @@ Open Visual Studio Code and install the Dev Container extension.
     style={{ width: "100%", maxWidth: "1200px" }}
   />
 </div>
+
+## How to confirm the environment is ready
+
+After completing the steps above, you can quickly verify the environment with the checklist below:
+
+- `docker --version` prints the Docker version successfully.
+- After re-login or reboot, a normal user can run `docker ps` without `sudo`.
+- Visual Studio Code has the `Dev Containers` extension installed.
+- When you later open a source tree that contains a `.devcontainer` configuration, Visual Studio Code can detect it and offer `Reopen in Container`.
+
+If all of the above are true, the host is ready for subsequent {props?.items ?? 'U-Boot, Kernel and Radxa OS'} build work.
+
+## First download and disk space notes
+
+- The first time you use Dev Container, Visual Studio Code will automatically pull the container image and install dependencies.
+- This usually downloads several GB of data and also consumes several GB of disk space.
+- The exact image size and download time vary with the base image, dependency versions, and your network environment. Under a normal network, the first initialization can still take a while, so reserve enough time and disk space in advance.
+
+## Common network issues
+
+If Docker installation, VS Code download, or the first Dev Container startup is very slow, times out, or fails to download, check the following in order:
+
+1. Confirm that the host network is working and can access `https://get.docker.com` and `https://code.visualstudio.com/`.
+2. If your network restricts Docker Hub or related download endpoints, configure a working proxy or registry mirror according to your environment.
+3. If Docker is already installed but image pulling fails, run `docker pull hello-world` first to verify the basic Docker download path.
+4. If you are on a company network, campus network, or another restricted network, switch to a more stable network before retrying the initial setup to avoid interruption during the first Dev Container pull.
+
+If it still fails, record the exact error message first, then continue troubleshooting Docker networking, proxy, or DNS configuration.
